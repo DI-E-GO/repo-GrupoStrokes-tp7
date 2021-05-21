@@ -7,9 +7,11 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -35,6 +37,9 @@ public class Cuenta {
 	@Column(name = "estado")
 	private String estado;
 	
+	@OneToOne(mappedBy = "cuenta", fetch = FetchType.LAZY)
+	private Cliente cliente;
+	
 	public Cuenta() {
 		// TODO Auto-generated constructor stub
 	}
@@ -43,13 +48,15 @@ public class Cuenta {
 	 * @param saldo
 	 * @param fechaCreacion
 	 * @param estado
+	 * @param cliente
 	 */
-	public Cuenta(Long id, double saldo, LocalDate fechaCreacion, String estado) {
+	public Cuenta(Long id, double saldo, LocalDate fechaCreacion, String estado, Cliente cliente) {
 		super();
 		this.id = id;
 		this.saldo = saldo;
 		this.fechaCreacion = fechaCreacion;
 		this.estado = estado;
+		this.cliente = cliente;
 	}
 	/**
 	 * @return the id
@@ -99,9 +106,23 @@ public class Cuenta {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+	
+	/**
+	 * @return the cliente
+	 */
+	public Cliente getCliente() {
+		return cliente;
+	}
+	/**
+	 * @param cliente the cliente to set
+	 */
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 	@Override
 	public String toString() {
 		return "Cuenta [id=" + id + ", saldo=" + saldo + ", fechaCreacion=" + fechaCreacion + ", estado=" + estado
-				+ "]";
+				+ ", cliente=" + cliente + "]";
 	}
+	
 }
