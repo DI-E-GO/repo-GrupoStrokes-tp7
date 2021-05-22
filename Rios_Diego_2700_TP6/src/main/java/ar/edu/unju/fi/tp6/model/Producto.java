@@ -23,7 +23,7 @@ public class Producto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "codigo")
-	private int codigo;
+	private Long codigo;
 	@Column(name = "nombre_producto")
 	private String nombre;
 	@Column(name = "precio")
@@ -44,7 +44,7 @@ public class Producto {
 	 * @param marca
 	 * @param stock
 	 */
-	public Producto(int codigo, String nombre, double precio, String marca, int stock) {
+	public Producto(long codigo, String nombre, double precio, String marca, int stock) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
@@ -56,14 +56,14 @@ public class Producto {
 	/**
 	 * @return the codigo
 	 */
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
 	/**
 	 * @param codigo the codigo to set
 	 */
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 

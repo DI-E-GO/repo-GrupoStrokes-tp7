@@ -24,7 +24,7 @@ public class Compra {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	private int id;
+	private Long id;
 	@ManyToOne
 	private Producto producto;
 	@Column(name = "cantidad")
@@ -41,7 +41,7 @@ public class Compra {
 	 * @param cantidad
 	 * @param total
 	 */
-	public Compra(int id, Producto producto, int cantidad, double total) {
+	public Compra(Long id, Producto producto, int cantidad, double total) {
 		super();
 		this.id = id;
 		this.producto = producto;
@@ -51,13 +51,13 @@ public class Compra {
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	/**
