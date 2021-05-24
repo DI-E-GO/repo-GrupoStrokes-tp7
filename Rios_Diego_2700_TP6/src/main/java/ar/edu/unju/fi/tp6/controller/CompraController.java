@@ -20,11 +20,11 @@ import ar.edu.unju.fi.tp6.service.IProductoService;
 @Controller
 public class CompraController {
 	@Autowired
-	@Qualifier("compraUtilService")
+	@Qualifier("compraServiceMysql")
 	private ICompraService compraService;
 	
 	@Autowired
-	@Qualifier("productoService")
+	@Qualifier("productoServiceMysql")
 	private IProductoService productoService;
 	List<Producto> productos = new ArrayList<>();
 	

@@ -19,11 +19,11 @@ import ar.edu.unju.fi.tp6.service.IClienteService;
 @Controller
 public class MainController {
 	@Autowired
-	@Qualifier("clienteUtilService")
+	@Qualifier("clienteServiceMysql")
 	private IClienteService clienteService;
 	
 	@Autowired
-	@Qualifier("productoService")
+	@Qualifier("productoServiceMysql")
 	private IProductoService productoService;
 	
 	@GetMapping("/home")

@@ -64,5 +64,10 @@ public class ClienteServiceImp implements IClienteService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public void eliminarCliente(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

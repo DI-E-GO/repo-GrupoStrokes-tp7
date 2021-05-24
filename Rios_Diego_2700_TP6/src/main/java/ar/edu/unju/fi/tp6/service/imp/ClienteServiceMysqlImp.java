@@ -15,6 +15,9 @@ public class ClienteServiceMysqlImp implements IClienteService{
 	
 	@Autowired
 	IClienteRepository clienteRepository;
+	
+	@Autowired
+	Cliente cliente;
 
 
 	@Override
@@ -45,7 +48,13 @@ public class ClienteServiceMysqlImp implements IClienteService{
 	@Override
 	public Cliente getCliente() {
 		// TODO Auto-generated method stub
-		return null;
+		return cliente;
+	}
+
+	@Override
+	public void eliminarCliente(Long id) {
+		// TODO Auto-generated method stub
+		clienteRepository.deleteById(id);
 	}
 
 	

@@ -18,4 +18,5 @@ public interface IClienteService {
 	public List<Cliente> getClientes();
 	public void generateTableClientes();
 	Optional<Cliente> getCliente(Long id);
+	public void eliminarCliente(Long id);
 }
