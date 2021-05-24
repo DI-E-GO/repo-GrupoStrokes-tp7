@@ -25,6 +25,7 @@
 						<th>Edad</th>
 						<th>Teléfono</th>
 						<th>Datos Adicionales</th>
+						<th>Acciones</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -43,6 +44,12 @@
 						  <!--<li th:text="${cliente.getTiempoFechaNacimiento()}"></li>
 						  <li th:text="${cliente.getTiempoHastaCumpleanos()}"></li>-->
 						</ul>
+						</td>
+						<td>
+							<div class="btn-group btn-group-sm" role="group">
+								<a th:href="@{/cliente/editar/}+${cliente.nroDocumento}"  class="btn btn-outline-warning">Editar</a>
+								<a th:href="@{/cliente/borrar/}+${cliente.nroDocumento}" class="btn btn-outline-danger">Borrar</a>
+							</div>
 						</td>
 					</tr>
 				</tbody>

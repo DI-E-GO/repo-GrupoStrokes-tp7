@@ -28,7 +28,9 @@ public class ProductoServiceMysqlImp implements IProductoService{
 	@Override
 	public Producto getUltimoProducto() {
 		// TODO Auto-generated method stub
-		return null;
+		List<Producto> listaProductos = productoRepository.findAll();
+		int i = listaProductos.size();
+		return listaProductos().get(i-1);
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package ar.edu.unju.fi.tp6.controller;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -54,6 +56,17 @@ public class MainController {
 		}
 		model.addObject("clientes",clienteService.getClientes());
 		return model;
+	}
+	@GetMapping("/cliente/editar/{id}")
+	public String editarCliente(@PathVariable Long id, Model model) {
+		Optional<Cliente> cliente = clienteService.getCliente(id);
+		model.addAttribute("cliente", cliente);
+		return "nuevo-cliente";
+	}
+	@GetMapping("/cliente/borrar/{id}")
+	public String borrarCliente(@PathVariable Long id, Model model) {
+		clienteService.eliminarCliente(id);
+		return "redirect:/cliente/listado";
 	}
 	/*
 	 * 
