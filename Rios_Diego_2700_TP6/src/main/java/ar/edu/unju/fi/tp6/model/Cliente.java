@@ -36,7 +36,7 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "nro_documento")
-	private int nroDocumento;
+	private Long nroDocumento;
 	@Column(name = "nombre_apellido")
 	private String nombreApellido;
 	@Column(name = "email")
@@ -79,7 +79,7 @@ public class Cliente {
 	 * @param fechaUltimaCompra
 	 * @param cuenta
 	 */
-	public Cliente(String tipoDocumento, int nroDocumento, String nombreApellido, String email, String password,
+	public Cliente(String tipoDocumento, Long nroDocumento, String nombreApellido, String email, String password,
 			LocalDate fechaNacimiento, int edad, int codigoAreaTelefono, int nroTelefono, LocalDate fechaUltimaCompra, Cuenta cuenta) {
 		super();
 		this.tipoDocumento = tipoDocumento;
@@ -143,14 +143,14 @@ public class Cliente {
 	/**
 	 * @return the nroDocumento
 	 */
-	public int getNroDocumento() {
+	public Long getNroDocumento() {
 		return nroDocumento;
 	}
 
 	/**
 	 * @param nroDocumento the nroDocumento to set
 	 */
-	public void setNroDocumento(int nroDocumento) {
+	public void setNroDocumento(Long nroDocumento) {
 		this.nroDocumento = nroDocumento;
 	}
 

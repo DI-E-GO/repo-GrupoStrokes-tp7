@@ -2,6 +2,7 @@ package ar.edu.unju.fi.tp6.service.imp;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -51,6 +52,16 @@ public class ProductoServiceImp implements IProductoService {
 	@Override
 	public List<Producto> listaProductos(){
 		return this.productos;
+	}
+	@Override
+	public void eliminarProducto(Long codigo) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Optional<Producto> getProducto(Long codigo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

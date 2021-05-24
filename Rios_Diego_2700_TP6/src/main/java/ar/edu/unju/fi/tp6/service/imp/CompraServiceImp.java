@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.tp6.service.imp;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -47,6 +48,18 @@ public class CompraServiceImp implements ICompraService {
 		LOGGER.info("METHOD: getCompras()");
 		LOGGER.info("RESULT: a list of Compras");
 		return compras;
+	}
+
+	@Override
+	public Optional<Compra> getCompra(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void eliminarCompra(Long id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
