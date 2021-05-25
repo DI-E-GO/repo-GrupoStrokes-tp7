@@ -92,6 +92,36 @@
 										class="form-control" th:field="*{fechaUltimaCompra}">
 								</div>
 							</div>
+							<h2 class="text-center">Datos de Cuenta</h2>
+							<div class="form-group row">
+								<label for="idCuenta" class="col-sm-2 col-form-label">ID de la cuenta</label>
+							    <div class="col-sm-10">
+							      <input type="text" class="form-control" id="idCuenta" th:field="*{cuenta.id}" title="Ingrese el Id de su cuenta">
+							    </div>
+							</div>
+							<div class="form-group row">
+								<label for="saldoCuenta" class="col-sm-2 col-form-label">Saldo de la cuenta</label>
+							    <div class="col-sm-10">
+							      <input type="number" class="form-control" id="saldo" th:field="*{cuenta.saldo}" title="Ingrese el saldo de su cuenta">
+							    </div>
+							</div>
+							<div class="form-group row">
+								<label for="fechaCreacion" class="col-sm-2 col-form-label">Fecha de creacion</label>
+							    <div class="col-sm-10">
+							      <input type="date" class="form-control" id="fechaCreacion" th:field="*{cuenta.fechaCreacion}">
+							    </div>
+							</div>
+							<div class="form-group row">
+								<label for="estadoCuenta" class="col-sm-2 col-form-label">Estado de la cuenta</label>
+							    <div class="col-sm-10">
+							     <select class="form-select" id="estadoCuenta" th:field="*{cuenta.estado}">
+							     	<option selected value="">Seleccione una opción</option>
+									<option value="activa">Activa</option>
+									<option value="inactiva">Inactiva</option>
+							     </select>
+							    </div>
+							</div>
+							
 							<div class="d-grid gap-2 mt-3">
 								<input class="btn btn-outline-success" type="submit" id="liveToastBtn" value="Guardar">
 								<input class="btn btn-outline-danger" type="reset" value="Cancelar">
