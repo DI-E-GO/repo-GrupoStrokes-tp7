@@ -17,7 +17,8 @@
 				<thead>
 					<tr>
 						<th>Tipo de Documento</th>
-						<th>Número de Documento</th>
+						<th>Numero Doc</th>
+						<th>Id Cliente</th>
 						<th>Apellido y Nombre</th>
 						<th>E-mail</th>
 						<th>Fecha de Nacimiento</th>
@@ -32,6 +33,7 @@
 					<tr th:each="cliente:${clientes}">
 						<td th:text="${cliente.tipoDocumento}"></td>
 						<td th:text="${cliente.nroDocumento}"></td>
+						<td th:text="${cliente.id}"></td>
 						<td class="text-uppercase" th:text="${cliente.nombreApellido}"></td>
 						<td th:text="${cliente.email}"></td>
 						<td th:text="${#temporals.format(cliente.fechaNacimiento,'dd/MM/yyyy')}"></td>
@@ -47,8 +49,8 @@
 						</td>
 						<td>
 							<div class="btn-group btn-group-sm" role="group">
-								<a th:href="@{/cliente/editar/}+${cliente.nroDocumento}"  class="btn btn-outline-warning">Editar</a>
-								<a th:href="@{/cliente/borrar/}+${cliente.nroDocumento}" class="btn btn-outline-danger">Borrar</a>
+								<a th:href="@{/cliente/editar/}+${cliente.id}"  class="btn btn-outline-warning">Editar</a>
+								<a th:href="@{/cliente/borrar/}+${cliente.id}" class="btn btn-outline-danger">Borrar</a>
 							</div>
 						</td>
 					</tr>

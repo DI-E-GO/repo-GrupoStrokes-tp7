@@ -33,10 +33,12 @@ import org.springframework.stereotype.Component;
 public class Cliente {
 	@Column(name = "tipo_documento")
 	private String tipoDocumento;
+	@Column(name = "nro_documento")
+	private int nroDocumento;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "nro_documento")
-	private Long nroDocumento;
+	@Column(name = "id")
+	private Long id;
 	@Column(name = "nombre_apellido")
 	private String nombreApellido;
 	@Column(name = "email")
@@ -68,7 +70,7 @@ public class Cliente {
 
 	/**
 	 * @param tipoDocumento
-	 * @param nroDocumento
+	 * @param id
 	 * @param nombreApellido
 	 * @param email
 	 * @param password
@@ -79,11 +81,35 @@ public class Cliente {
 	 * @param fechaUltimaCompra
 	 * @param cuenta
 	 */
-	public Cliente(String tipoDocumento, Long nroDocumento, String nombreApellido, String email, String password,
-			LocalDate fechaNacimiento, int edad, int codigoAreaTelefono, int nroTelefono, LocalDate fechaUltimaCompra, Cuenta cuenta) {
+	
+	/**
+	 * @return String con los dias, meses y días desde la ultima compra de un cliente 
+	 */
+	public String getTiempoUltimaCompra() {
+		Period p = Period.between(fechaUltimaCompra, LocalDate.now());
+		return "Última compra:"+p.getYears()+"(años) "+p.getMonths()+"(meses) "+p.getDays()+"(días)";
+	}
+	/**
+	 * @param tipoDocumento
+	 * @param nroDocumento
+	 * @param id
+	 * @param nombreApellido
+	 * @param email
+	 * @param password
+	 * @param fechaNacimiento
+	 * @param edad
+	 * @param codigoAreaTelefono
+	 * @param nroTelefono
+	 * @param fechaUltimaCompra
+	 * @param cuenta
+	 */
+	public Cliente(String tipoDocumento, int nroDocumento, Long id, String nombreApellido, String email,
+			String password, LocalDate fechaNacimiento, int edad, int codigoAreaTelefono, int nroTelefono,
+			LocalDate fechaUltimaCompra, Cuenta cuenta) {
 		super();
 		this.tipoDocumento = tipoDocumento;
 		this.nroDocumento = nroDocumento;
+		this.id = id;
 		this.nombreApellido = nombreApellido;
 		this.email = email;
 		this.password = password;
@@ -94,13 +120,7 @@ public class Cliente {
 		this.fechaUltimaCompra = fechaUltimaCompra;
 		this.cuenta = cuenta;
 	}
-	/**
-	 * @return String con los dias, meses y días desde la ultima compra de un cliente 
-	 */
-	public String getTiempoUltimaCompra() {
-		Period p = Period.between(fechaUltimaCompra, LocalDate.now());
-		return "Última compra:"+p.getYears()+"(años) "+p.getMonths()+"(meses) "+p.getDays()+"(días)";
-	}
+
 	/**
 	 * @return String con los días desde la fechaNacimiento de un cliente hasta la fecha actual 
 	 */
@@ -143,14 +163,27 @@ public class Cliente {
 	/**
 	 * @return the nroDocumento
 	 */
-	public Long getNroDocumento() {
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the nroDocumento to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
+	/**
+	 * @return the nroDocumento
+	 */
+	public int getNroDocumento() {
 		return nroDocumento;
 	}
 
 	/**
 	 * @param nroDocumento the nroDocumento to set
 	 */
-	public void setNroDocumento(Long nroDocumento) {
+	public void setNroDocumento(int nroDocumento) {
 		this.nroDocumento = nroDocumento;
 	}
 
@@ -282,12 +315,11 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Cliente [tipoDocumento=" + tipoDocumento + ", nroDocumento=" + nroDocumento + ", nombreApellido="
-				+ nombreApellido + ", email=" + email + ", password=" + password + ", fechaNacimiento="
-				+ fechaNacimiento + ", edad=" + edad + ", codigoAreaTelefono=" + codigoAreaTelefono + ", nroTelefono="
-				+ nroTelefono + ", fechaUltimaCompra=" + fechaUltimaCompra + ", cuenta=" + cuenta + "]";
+		return "Cliente [tipoDocumento=" + tipoDocumento + ", nroDocumento=" + nroDocumento + ", id=" + id
+				+ ", nombreApellido=" + nombreApellido + ", email=" + email + ", password=" + password
+				+ ", fechaNacimiento=" + fechaNacimiento + ", edad=" + edad + ", codigoAreaTelefono="
+				+ codigoAreaTelefono + ", nroTelefono=" + nroTelefono + ", fechaUltimaCompra=" + fechaUltimaCompra
+				+ ", cuenta=" + cuenta + "]";
 	}
-	
-	
 	
 }

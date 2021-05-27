@@ -3,7 +3,6 @@
  */
 package ar.edu.unju.fi.tp6.service.imp;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -57,7 +56,7 @@ public class ClienteServiceImp implements IClienteService {
 	@Override
 	public void generateTableClientes() {
 		clientes=TableClientes.registros;
-		clientes.add(new Cliente("DNI", (long) 45433210,"Diego Rios" , "diego@gmail.com", "1234cinco", LocalDate.of(1990, 8, 20), 30, 388, 562134, LocalDate.of(2020, 12, 12), null));
+		//clientes.add(new Cliente("DNI", (long) 45433210,"Diego Rios" , "diego@gmail.com", "1234cinco", LocalDate.of(1990, 8, 20), 30, 388, 562134, LocalDate.of(2020, 12, 12), null));
 	}
 	@Override
 	public Optional<Cliente> getCliente(Long id) {
